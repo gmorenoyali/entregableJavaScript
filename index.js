@@ -152,32 +152,57 @@ countElements(arrayElementos);
   // Función squareNumbers: Calcular el cuadrado de cada número en un array
   // Parámetros: array (Array) - Un array de números
   // Devuelve: Array - Un nuevo array con los cuadrados de los números en el array original
-  const squareNumbers = () => {
-   
+  const squareNumbers = (arrayBase) => {
+   let arrayCuadrado = [];
+   for (let i = 0; i<arrayBase.length; i++){
+      arrayCuadrado.push(arrayBase[i] * arrayBase[i]);
+   }
+    return arrayCuadrado;
   };
 
-  /* let arrayBase = [2,4,6,8,5,55,65,11,33];
+  let arrayBase = [2,4,6,8,5,55,65,11,33];
 
-  squareNumbers(arrayBase); */
+  squareNumbers(arrayBase);
+
+
 
   // Función flecha para agregar habilidades a un jugador de un juego
-const agregarHabilidad = (jugador, nuevaHabilidad) => {
-    /*
-    Parámetros de entrada:
-    - jugador: objeto que representa al jugador del juego.
-    - nuevaHabilidad: string que representa la nueva habilidad a agregar al jugador.
-
-    Lo que hace la función:
-    Esta función recibe un objeto de jugador y una nueva habilidad como entrada.
-    Verifica si el jugador tiene un arreglo de habilidades. Si no lo tiene, lo crea.
-    Luego, agrega la nueva habilidad al arreglo de habilidades del jugador si esta no existe
-
-    Valor de retorno:
-    Retorna el objeto jugador modificado con la nueva habilidad agregada.
-    */
-    
+  /*
+  Parámetros de entrada:
+  - jugador: objeto que representa al jugador del juego.
+  - nuevaHabilidad: string que representa la nueva habilidad a agregar al jugador.
+  
+  Lo que hace la función:
+  Esta función recibe un objeto de jugador y una nueva habilidad como entrada.
+  Verifica si el jugador tiene un arreglo de habilidades. Si no lo tiene, lo crea.
+  Luego, agrega la nueva habilidad al arreglo de habilidades del jugador si esta no existe
+  
+  Valor de retorno:
+  Retorna el objeto jugador modificado con la nueva habilidad agregada.
+  */
+   const agregarHabilidad = (jugador, nuevaHabilidad) => {
+    if(!jugador.habilidades){
+      jugador.habilidades = [];
+    }
    
-};
+    if(!jugador.habilidades.includes(nuevaHabilidad)){
+      jugador.habilidades.push(nuevaHabilidad);
+    }
+
+    return jugador
+  };
+
+  let jugador = {
+    nombre:"GiiO",
+    nivel: 10,
+    habilidades: ["Ataque", "defensa"] 
+  };
+
+  let nuevaHabilidad ="Curacion";
+
+  jugador = agregarHabilidad(jugador,nuevaHabilidad);
+
+
 
 // Función para calcular la duración total de reproducción de todas las películas.
 // Parámetros:
@@ -185,8 +210,24 @@ const agregarHabilidad = (jugador, nuevaHabilidad) => {
 // Retorna:
 // - Un número que representa la duración total de todas las películas en minutos.
 const calcularDuracionTotal = (peliculas) => {
-    
+    let duracionTotal = 0;
+
+    for(let i= 0; i < peliculas.length; i++){
+      if(peliculas[i].duracion >=0){
+        duracionTotal+= peliculas[i].duracion;
+      }
+    }
+
+    return duracionTotal;
 };
+
+let peliculas = [
+  { titulo: "El Padrino", duracion: 175 },
+  { titulo: "Forrest Gump", duracion: 142 },
+  { titulo: "Titanic", duracion: 195 }
+];
+
+calcularDuracionTotal(peliculas);
 
 
 // Función para buscar películas por título y género.
@@ -197,8 +238,26 @@ const calcularDuracionTotal = (peliculas) => {
 // Retorna:
 // - Un array de objetos que representan películas que coinciden con el título y el género especificados.
 const buscarPeliculas = (peliculas, titulo, genero) => {
-    
+  return peliculas.filter(pelicula => {
+    if (!genero) {
+        return pelicula.titulo.toLowerCase().includes(titulo.toLowerCase());
+    } else {
+        return pelicula.titulo.toLowerCase().includes(titulo.toLowerCase()) && pelicula.genero.toLowerCase() === genero.toLowerCase();
+    }
+});
 };
+
+let peliculass = [
+  { titulo: "El Padrino", genero: "Drama" },
+  { titulo: "Forrest Gump", genero: "Drama" },
+  { titulo: "Titanic", genero: "Romance" }
+];
+
+let tituloABuscar = "El";
+let generoABuscar = "Drama";
+
+buscarPeliculas(peliculass, tituloABuscar, generoABuscar);
+
 
 // Función para calcular el promedio de puntajes de las películas.
 // Parámetros:
