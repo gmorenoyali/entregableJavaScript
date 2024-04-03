@@ -2,55 +2,119 @@
 // Función sumArray: Suma de todos los elementos de un array
 // Parámetros: array (Array) - Un array de números
 // Devuelve: Number - La suma de todos los elementos del array
-const sumArray = () => {
-    
-  };
-  
+
+const sumArray = (array) => {   
+  let suma = 0;
+  for(let i = 0; i < array.length; i++){
+    suma += array[i]
+  }
+    return suma;
+};
+
+let array = [1,2,3,4,5];
+
+sumArray(array);
+
+
   // Función filterEvenNumbers: Filtrar números pares de un array
   // Parámetros: array (Array) - Un array de números
   // Devuelve: Array - Un nuevo array con solo los números pares del array original
-  const filterEvenNumbers = () => {
-    
+  const filterEvenNumbers = (Array) => {
+    let numerosPares = Array.filter(numero => numero % 2 ===0);
+    return numerosPares;
   };
+
+
+  let arrayNumPares = [1,2,3,4,5,6,7,8,9];
   
+  filterEvenNumbers(arrayNumPares);
+
   // Función findMaxNumber: Encontrar el mayor número en un array
   // Parámetros: array (Array) - Un array de números
   // Devuelve: Number - El mayor número en el array
-  const findMaxNumber = () => {
-    
+  const findMaxNumber = (maxArray)=>{
+    let maximo = Math.max(...maxArray);
+    return maximo;
   };
+
+  let numeros = [14,5,11,11,7,1,55,37,28];
   
+  findMaxNumber(numeros);
+
+
+
+
   // Función toUpperCaseStrings: Convertir un array de strings a mayúsculas
   // Parámetros: array (Array) - Un array de strings
   // Devuelve: Array - Un nuevo array con todas las strings convertidas a mayúsculas
-  const toUpperCaseStrings = () => {
-    
+  const toUpperCaseStrings = (arraylow) => {
+    let arrayUp = arraylow.map(str => str.toUpperCase());
+    return arrayUp;
   };
 
+  let arrayLow = ["leo","nohemy","mariana","yuno","giio"];
+  
+
+  toUpperCaseStrings(arrayLow)
   
   // Función calculateAverage: Calcular el promedio de un array de números
   // Parámetros: array (Array) - Un array de números
   // Devuelve: Number - El promedio de los números en el array
-  const calculateAverage = () => {
-    
+  const calculateAverage = (averageArray) => {
+    if (averageArray.length === 0){
+      return 0;
+    }
+
+    let suma = 0;
+
+    for (let i = 0; i < averageArray.length; i++){
+      suma += averageArray[i];
+    }
+
+    return suma/averageArray.length;
   };
+
+  let averageArray = [15,20,14,11,36,31,30,62,64];
+
+  calculateAverage(averageArray);
   
   // Función sortNumbersAscending: Ordenar un array de números de forma ascendente
   // Parámetros: array (Array) - Un array de números
   // Devuelve: Array - Un nuevo array con los números ordenados de forma ascendente
-  const sortNumbersAscending = () => {
-    
+  const sortNumbersAscending = (arraySinOrden) => {
+    let arrayOrdenado = arraySinOrden.slice();
+    arrayOrdenado.sort((a,b) => a-b);
+
+    return arrayOrdenado;
   };
   
+let arraySinOrden = [55,31,5,11,17,21,38,64,62];
+
+sortNumbersAscending(arraySinOrden);
+
   // Función findFirstElement: Encontrar el primer elemento que cumple una condición en un array
   // Parámetros: 
   // - array (Array) - Un array de elementos
   // - condition (Function) - Una función de condición que devuelve true o false
   // Devuelve: Any - El primer elemento que cumple con la condición, o undefined si ninguno lo hace
-  const findFirstElement = () => {
-    
+  const findFirstElement = (arrayElement,esPar) => {
+    for(let i = 0; i < arrayElement.length; i++){
+      if(esPar(arrayElement[i])){
+        return arrayElement[i]
+      }
+    }
+    return undefined;
   };
   
+let arrayElement = [1,3,5,4,7,2,5,1];
+
+function esPar(numero){
+  return numero % 2 === 0;
+}
+
+findFirstElement(arrayElement,esPar);
+
+
   // Función countElements: Contar la cantidad de elementos en un array
   // Parámetros: array (Array) - Un array de elementos
   // Devuelve: Number - La cantidad de elementos en el array
