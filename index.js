@@ -360,13 +360,17 @@ class Vehiculo {
    * @param {number} año - El año de fabricación del vehículo.
    */
 
-
+  constructor(marca, modelo, año) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.año = año;
+  }
   /**
    * Método para obtener la información del vehículo.
    * @returns {string} - La información del vehículo en formato de cadena de texto.
    */
   obtenerInformacion() {
-
+    return `Marca: ${this.marca}, Modelo: ${this.modelo}, Año: ${this.año}`;
   }
 }
 
@@ -386,6 +390,15 @@ class Automovil extends Vehiculo {
    * @param {string} tipoTransmision - El tipo de transmisión del automóvil.
    */
 
+  constructor(marca, modelo, año, color, cilindrada, potencia, numPuertas, numAsientos, tipoTransmision) {
+    super(marca, modelo, año);
+    this.color = color;
+    this.cilindrada = cilindrada;
+    this.potencia = potencia;
+    this.numPuertas = numPuertas;
+    this.numAsientos = numAsientos;
+    this.tipoTransmision = tipoTransmision;
+  }
 
   /**
    * Método para obtener la información del automóvil.
@@ -393,6 +406,8 @@ class Automovil extends Vehiculo {
    */
   obtenerInformacion() {
 
+    return `${super.obtenerInformacion()}, Color: ${this.color}, Cilindrada: ${this.cilindrada}, Potencia: ${this.potencia}, Puertas: ${this.numPuertas}, Asientos: ${this.numAsientos}, Transmisión: ${this.tipoTransmision}`;
+  
   }
 }
 
@@ -409,14 +424,21 @@ class Motocicleta extends Vehiculo {
    * @param {number} numRuedas - El número de ruedas de la motocicleta.
    * @param {string} tipo - El tipo de motocicleta (deportiva, touring, etc.).
    */
-
+  constructor(marca, modelo, año, color, cilindrada, potencia, numRuedas, tipo) {
+    super(marca, modelo, año);
+    this.color = color;
+    this.cilindrada = cilindrada;
+    this.potencia = potencia;
+    this.numRuedas = numRuedas;  
+    this.tipo= tipo;
+  }
 
   /**
    * Método para obtener la información de la motocicleta.
    * @returns {string} - La información de la motocicleta en formato de cadena de texto.
    */
   obtenerInformacion() {
-
+    return `${super.obtenerInformacion()}, Color: ${this.color}, Cilindrada: ${this.cilindrada}, Potencia: ${this.potencia}, Ruedas: ${this.numRuedas}, Tipo: ${this.tipo}`;
   }
 }
 
@@ -435,13 +457,24 @@ class Camion extends Vehiculo {
    * @param {string} tipoCarroceria - El tipo de carrocería del camión (remolque, furgón, etc.).
    */
 
+  constructor(marca, modelo, año, color, cilindrada, potencia, numEjes,capacidadCarga, tipoCarroceria) {
+    super(marca, modelo, año);
+    this.color = color;
+    this.cilindrada = cilindrada;
+    this.potencia = potencia;
+    this.numEjes = numEjes;
+    this.capacidadCarga = capacidadCarga;  
+    this.tipoCarroceria = tipoCarroceria;
+  }
+
+
 
   /**
    * Método para obtener la información del camión.
    * @returns {string} - La información del camión en formato de cadena de texto.
    */
   obtenerInformacion() {
-
+    return `${super.obtenerInformacion()}, Color: ${this.color}, Cilindrada: ${this.cilindrada}, Potencia: ${this.potencia}, Ejes: ${this.numEjes}, Capacidad de Carga: ${this.capacidadCarga}, Tipo de Carrocería: ${this.tipoCarroceria}`;
   }
 }
 
@@ -460,13 +493,22 @@ class Autobus extends Vehiculo {
    * @param {string} tipoMotor - El tipo de motor del autobús (diésel, gasolina, eléctrico, etc.).
    */
 
+  constructor(marca, modelo, año, color, cilindrada, potencia, capacidadPasajeros,tipoCombustible, tipoMotor) {
+    super(marca, modelo, año);
+    this.color = color;
+    this.cilindrada = cilindrada;
+    this.potencia = potencia;
+    this.capacidadPasajeros = capacidadPasajeros;
+    this.tipoCombustible = tipoCombustible;  
+    this.tipoMotor = tipoMotor;
+  }
 
   /**
    * Método para obtener la información del autobús.
    * @returns {string} - La información del autobús en formato de cadena de texto.
    */
   obtenerInformacion() {
-
+    return `${super.obtenerInformacion()}, Color: ${this.color}, Cilindrada: ${this.cilindrada}, Potencia: ${this.potencia}, Pasajeros: ${this.capacidadPasajeros}, Combustible: ${this.tipoCombustible}, Tipo de Motor: ${this.tipoMotor}`;
   }
 }
 
@@ -484,14 +526,22 @@ class Bicicleta extends Vehiculo {
    * @param {string} frenos - El tipo de frenos de la bicicleta (disco, v-brake, caliper, etc.).
    * @param {string} tipoManubrio - El tipo de manubrio de la bicicleta (recto, curvo, doble altura, etc.).
    */
-
+  constructor(marca, modelo,año,tipo,numMarchas, material,suspencion,frenos,tipoManubrio){
+    super(marca, modelo,año);
+    this.tipo = tipo;
+    this.numMarchas = numMarchas;
+    this.material = material;
+    this.suspencion =suspencion;
+    this.frenos = frenos;
+    this.tipoManubrio = tipoManubrio;
+  }
 
   /**
    * Método para obtener la información de la bicicleta.
    * @returns {string} - La información de la bicicleta en formato de cadena de texto.
    */
   obtenerInformacion() {
-
+    return `${super.obtenerInformacion()}, Tipo: ${this.tipo}, Marchas: ${this.numMarchas}, Material: ${this.material}, Suspensión: ${this.suspencion}, Frenos: ${this.frenos}, Tipo de Manubrio: ${this.tipoManubrio}`;
   }
 }
 
