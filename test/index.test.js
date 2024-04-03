@@ -22,7 +22,7 @@ const {
     Autobus, 
     Bicicleta
      
-  } = require('../tarea');
+  } = require('../index');
   
   describe('Pruebas para las funciones de manipulación de arrays', () => {
     // Pruebas para sumArray

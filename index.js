@@ -118,25 +118,47 @@ findFirstElement(arrayElement,esPar);
   // Función countElements: Contar la cantidad de elementos en un array
   // Parámetros: array (Array) - Un array de elementos
   // Devuelve: Number - La cantidad de elementos en el array
-  const countElements = () => {
-    
+  const countElements = (array) => {
+    return array.length;
   };
   
-  // Función concatenateArrays: Concatenar dos arrays
-  // Parámetros: 
-  // - array1 (Array) - El primer array a concatenar
-  // - array2 (Array) - El segundo array a concatenar
-  // Devuelve: Array - Un nuevo array que es la concatenación de los dos arrays proporcionados
-  const concatenateArrays = () => {
+let arrayElementos = ["Leo","Nohemy","GiiO",5,11,22,33,44,55];
+
+
+
+// Función concatenateArrays: Concatenar dos arrays
+// Parámetros: 
+// - array1 (Array) - El primer array a concatenar
+// - array2 (Array) - El segundo array a concatenar
+// Devuelve: Array - Un nuevo array que es la concatenación de los dos arrays proporcionados
+
+countElements(arrayElementos);
+  const concatenateArrays = (arrayConcatenarUno,arrayConcatenarDos) => {
+    let arrayWeb = [];
+    arrayWeb.push(...arrayConcatenarUno);
+    arrayWeb.push(...arrayConcatenarDos);
     
+    return arrayWeb;
   };
+
   
+  arrayConcatenarUno = ["html","css","Js"];
+  arrayConcatenarDos = ["node","php","python"];
+
+  concatenateArrays(arrayConcatenarUno, arrayConcatenarDos);
+
+
+
   // Función squareNumbers: Calcular el cuadrado de cada número en un array
   // Parámetros: array (Array) - Un array de números
   // Devuelve: Array - Un nuevo array con los cuadrados de los números en el array original
   const squareNumbers = () => {
-    
+   
   };
+
+  /* let arrayBase = [2,4,6,8,5,55,65,11,33];
+
+  squareNumbers(arrayBase); */
 
   // Función flecha para agregar habilidades a un jugador de un juego
 const agregarHabilidad = (jugador, nuevaHabilidad) => {
