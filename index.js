@@ -33,8 +33,13 @@ filterEvenNumbers(arrayNumPares);
 // Parámetros: array (Array) - Un array de números
 // Devuelve: Number - El mayor número en el array
 const findMaxNumber = (maxArray) => {
-  let maximo = Math.max(...maxArray);
-  return maximo;
+  if (maxArray.length === 0) {
+    return undefined;
+  } else {
+    let maximo = Math.max(...maxArray);
+    return maximo;
+  }
+
 };
 
 let numeros = [14, 5, 11, 11, 7, 1, 55, 37, 28];
@@ -62,7 +67,7 @@ toUpperCaseStrings(arrayLow)
 // Devuelve: Number - El promedio de los números en el array
 const calculateAverage = (averageArray) => {
   if (averageArray.length === 0) {
-    return 0;
+    return NaN;
   }
 
   let suma = 0;
@@ -304,7 +309,7 @@ const filtrarPorAño = (peliculas, año) => {
   if (!año) {
     return peliculas;
   }
-  return peliculas.filter(pelicula => pelicula.año.toString() === año.toString());
+  return peliculas.filter(pelicula => pelicula.año && pelicula.año.toString() === año.toString());
 };
 
 let peliculaas = [
@@ -407,7 +412,7 @@ class Automovil extends Vehiculo {
   obtenerInformacion() {
 
     return `${super.obtenerInformacion()}, Color: ${this.color}, Cilindrada: ${this.cilindrada}, Potencia: ${this.potencia}, Puertas: ${this.numPuertas}, Asientos: ${this.numAsientos}, Transmisión: ${this.tipoTransmision}`;
-  
+
   }
 }
 
@@ -429,8 +434,8 @@ class Motocicleta extends Vehiculo {
     this.color = color;
     this.cilindrada = cilindrada;
     this.potencia = potencia;
-    this.numRuedas = numRuedas;  
-    this.tipo= tipo;
+    this.numRuedas = numRuedas;
+    this.tipo = tipo;
   }
 
   /**
@@ -457,13 +462,13 @@ class Camion extends Vehiculo {
    * @param {string} tipoCarroceria - El tipo de carrocería del camión (remolque, furgón, etc.).
    */
 
-  constructor(marca, modelo, año, color, cilindrada, potencia, numEjes,capacidadCarga, tipoCarroceria) {
+  constructor(marca, modelo, año, color, cilindrada, potencia, numEjes, capacidadCarga, tipoCarroceria) {
     super(marca, modelo, año);
     this.color = color;
     this.cilindrada = cilindrada;
     this.potencia = potencia;
     this.numEjes = numEjes;
-    this.capacidadCarga = capacidadCarga;  
+    this.capacidadCarga = capacidadCarga;
     this.tipoCarroceria = tipoCarroceria;
   }
 
@@ -493,13 +498,13 @@ class Autobus extends Vehiculo {
    * @param {string} tipoMotor - El tipo de motor del autobús (diésel, gasolina, eléctrico, etc.).
    */
 
-  constructor(marca, modelo, año, color, cilindrada, potencia, capacidadPasajeros,tipoCombustible, tipoMotor) {
+  constructor(marca, modelo, año, color, cilindrada, potencia, capacidadPasajeros, tipoCombustible, tipoMotor) {
     super(marca, modelo, año);
     this.color = color;
     this.cilindrada = cilindrada;
     this.potencia = potencia;
     this.capacidadPasajeros = capacidadPasajeros;
-    this.tipoCombustible = tipoCombustible;  
+    this.tipoCombustible = tipoCombustible;
     this.tipoMotor = tipoMotor;
   }
 
@@ -526,12 +531,12 @@ class Bicicleta extends Vehiculo {
    * @param {string} frenos - El tipo de frenos de la bicicleta (disco, v-brake, caliper, etc.).
    * @param {string} tipoManubrio - El tipo de manubrio de la bicicleta (recto, curvo, doble altura, etc.).
    */
-  constructor(marca, modelo,año,tipo,numMarchas, material,suspencion,frenos,tipoManubrio){
-    super(marca, modelo,año);
+  constructor(marca, modelo, año, tipo, numMarchas, material, suspencion, frenos, tipoManubrio) {
+    super(marca, modelo, año);
     this.tipo = tipo;
     this.numMarchas = numMarchas;
     this.material = material;
-    this.suspencion =suspencion;
+    this.suspencion = suspencion;
     this.frenos = frenos;
     this.tipoManubrio = tipoManubrio;
   }
