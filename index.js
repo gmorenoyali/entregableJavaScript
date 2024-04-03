@@ -307,7 +307,7 @@ calcularPromedioPuntajes(peliculasss)
 const filtrarPorAño = (peliculas, año) => {
   // Filtrar las películas por año de lanzamiento.
   if (!año) {
-    return peliculas;
+    return [];
   }
   return peliculas.filter(pelicula => pelicula.año && pelicula.año.toString() === año.toString());
 };
