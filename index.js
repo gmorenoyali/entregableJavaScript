@@ -326,8 +326,29 @@ filtrarPorAño(peliculaas, añoBuscado);
 // - Un número que representa el promedio de duración de las películas del género especificado.
 const calcularPromedioDuracionPorGenero = (peliculas, genero) => {
   // Filtrar las películas por género.
+  let peliculasGenero = peliculas.filter(pelicula => pelicula.genero.toLowerCase() === genero.toLowerCase());
+
+  if (peliculasGenero.length === 0) {
+    return 0;
+  }
+
+  let duracionTotal = peliculasGenero.reduce((acumulador, pelicula) => acumulador + pelicula.duracion, 0);
+
+  return duracionTotal / peliculasGenero.length;
 
 };
+
+let pelicullas = [
+  { titulo: "El Padrino", genero: "Drama", duracion: 175 },
+  { titulo: "Forrest Gump", genero: "Drama", duracion: 142 },
+  { titulo: "Titanic", genero: "Romance", duracion: 195 },
+  { titulo: "Matrix", genero: "Ciencia ficción", duracion: 136 }
+];
+
+
+let genero = "Drama";
+
+calcularPromedioDuracionPorGenero(pelicullas, genero);
 
 
 // Clase base que representa un vehículo
